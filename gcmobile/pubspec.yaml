@@ -16,7 +16,7 @@ dependencies:
   camera: 0.5.8+2
   image: 2.1.12
   flutter_socket_io: 0.6.0
-  speech_to_text: 2.3.0
+  # speech_to_text: 2.3.0
 
 dev_dependencies:
   flutter_launcher_icons: 0.7.5

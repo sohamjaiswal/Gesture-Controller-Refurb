@@ -14,17 +14,17 @@ class _ConfigServerWidgetState extends State<ConfigServerWidget> {
   String ip;
   String strPort;
 
-  refresh(){
+  refresh() {
     setState(() {
-        try {
-          state = Socket.state;
-          var arr = Socket.domain.split(':');
-          ip = arr[0];
-          strPort = arr[1] ?? '';
-        } catch (e) {
-          ip = '';
-          strPort = '';
-        }
+      try {
+        state = Socket.state;
+        var arr = Socket.domain.split(':');
+        ip = arr[0];
+        strPort = arr[1] ?? '';
+      } catch (e) {
+        ip = '';
+        strPort = '';
+      }
     });
   }
 
@@ -39,7 +39,7 @@ class _ConfigServerWidgetState extends State<ConfigServerWidget> {
     Navigator.pop(context);
   }
 
-  initState(){
+  initState() {
     super.initState();
     try {
       state = Socket.state;
@@ -62,13 +62,11 @@ class _ConfigServerWidgetState extends State<ConfigServerWidget> {
           Align(
             alignment: Alignment.centerLeft,
             child: Text('Server Informations',
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                fontWeight: FontWeight.w600,
-                color: Colors.black54,
-                fontSize: 16
-              )
-            ),
+                style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black54,
+                    fontSize: 16)),
           ),
           Padding(
             padding: const EdgeInsets.only(top: 10),
@@ -78,12 +76,10 @@ class _ConfigServerWidgetState extends State<ConfigServerWidget> {
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text('Status: ',
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      color: Colors.black54,
-                      fontSize: 15
-                    )
-                  ),
+                      style: TextStyle(
+                          fontFamily: 'Poppins',
+                          color: Colors.black54,
+                          fontSize: 15)),
                 ),
                 statusWidget(),
               ],
@@ -97,23 +93,18 @@ class _ConfigServerWidgetState extends State<ConfigServerWidget> {
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text('Address: ',
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      color: Colors.black54,
-                      fontSize: 15
-                    )
-                  ),
+                      style: TextStyle(
+                          fontFamily: 'Poppins',
+                          color: Colors.black54,
+                          fontSize: 15)),
                 ),
                 Align(
                   alignment: Alignment.center,
-                  child: Text(
-                    ip ?? '',
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      color: Colors.black54,
-                      fontSize: 15
-                    )
-                  ),
+                  child: Text(ip ?? '',
+                      style: TextStyle(
+                          fontFamily: 'Poppins',
+                          color: Colors.black54,
+                          fontSize: 15)),
                 ),
               ],
             ),
@@ -126,23 +117,18 @@ class _ConfigServerWidgetState extends State<ConfigServerWidget> {
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text('Port: ',
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      color: Colors.black54,
-                      fontSize: 15
-                    )
-                  ),
+                      style: TextStyle(
+                          fontFamily: 'Poppins',
+                          color: Colors.black54,
+                          fontSize: 15)),
                 ),
                 Align(
                   alignment: Alignment.center,
-                  child: Text(
-                    strPort ?? '',
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      color: Colors.black54,
-                      fontSize: 15
-                    )
-                  ),
+                  child: Text(strPort ?? '',
+                      style: TextStyle(
+                          fontFamily: 'Poppins',
+                          color: Colors.black54,
+                          fontSize: 15)),
                 ),
               ],
             ),
@@ -152,15 +138,13 @@ class _ConfigServerWidgetState extends State<ConfigServerWidget> {
             child: Container(
               width: double.infinity,
               height: 28,
-              child: OutlineButton(
+              child: OutlinedButton(
                 onPressed: () => _showMyDialog(),
                 child: Text('EDIT',
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    color: Colors.black54,
-                    fontSize: 15
-                  )
-                ),
+                    style: TextStyle(
+                        fontFamily: 'Poppins',
+                        color: Colors.black54,
+                        fontSize: 15)),
               ),
             ),
           )
@@ -169,43 +153,27 @@ class _ConfigServerWidgetState extends State<ConfigServerWidget> {
     );
   }
 
-  Widget statusWidget(){
-    if(state == 0){
+  Widget statusWidget() {
+    if (state == 0) {
       return Align(
         alignment: Alignment.center,
-        child: Text(
-          'disconnected',
-          style: TextStyle(
-            fontFamily: 'Poppins',
-            color: Colors.black54,
-            fontSize: 15
-          )
-        ),
+        child: Text('disconnected',
+            style: TextStyle(
+                fontFamily: 'Poppins', color: Colors.black54, fontSize: 15)),
       );
-    }
-    else if(state == -1){
+    } else if (state == -1) {
       return Align(
         alignment: Alignment.center,
-        child: Text(
-          'connect error',
-          style: TextStyle(
-            fontFamily: 'Poppins',
-            color: Colors.red,
-            fontSize: 15
-          )
-        ),
+        child: Text('connect error',
+            style: TextStyle(
+                fontFamily: 'Poppins', color: Colors.red, fontSize: 15)),
       );
     }
     return Align(
       alignment: Alignment.center,
-      child: Text(
-        'connected',
-        style: TextStyle(
-          fontFamily: 'Poppins',
-          color: Colors.green,
-          fontSize: 15
-        )
-      ),
+      child: Text('connected',
+          style: TextStyle(
+              fontFamily: 'Poppins', color: Colors.green, fontSize: 15)),
     );
   }
 
@@ -215,69 +183,49 @@ class _ConfigServerWidgetState extends State<ConfigServerWidget> {
       barrierDismissible: false, // user must tap button!
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text(
-            'Server Address',
-            style: TextStyle(
-              fontFamily: 'Poppins',
-              color: Colors.black,
-              fontSize: 18
-            )
-          ),
+          title: Text('Server Address',
+              style: TextStyle(
+                  fontFamily: 'Poppins', color: Colors.black, fontSize: 18)),
           content: SingleChildScrollView(
             child: Column(
               children: <Widget>[
                 Container(
-                  width: 300,
-                  child: TextField(
-                    controller: address,
-                    decoration: InputDecoration(
-                      hintText: '192.168.0.152',
-                      labelText: 'IP'
-                    ),
-                  )
-                ),
+                    width: 300,
+                    child: TextField(
+                      controller: address,
+                      decoration: InputDecoration(
+                          hintText: '192.168.0.152', labelText: 'IP'),
+                    )),
                 Container(
-                  width: 300,
-                  child: TextField(
-                    controller: port,
-                    decoration: InputDecoration(
-                      hintText: '8080',
-                      labelText: 'Port'
-                    ),
-                  )
-                ),
+                    width: 300,
+                    child: TextField(
+                      controller: port,
+                      decoration:
+                          InputDecoration(hintText: '8080', labelText: 'Port'),
+                    )),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   mainAxisSize: MainAxisSize.max,
                   children: <Widget>[
                     Container(
-                      padding: EdgeInsets.only(top:20),
-                      width: 110,
-                      child: FlatButton(
-                        onPressed: () => disconnect(),
-                        child: Text(
-                          'Disconnect',
-                          style: TextStyle(
-                            color: Colors.black
-                          ),
-                        )
-                      )
-                    ),
+                        padding: EdgeInsets.only(top: 20),
+                        width: 110,
+                        child: TextButton(
+                            onPressed: () => disconnect(),
+                            child: Text(
+                              'Disconnect',
+                              style: TextStyle(color: Colors.black),
+                            ))),
                     Spacer(),
                     Container(
-                      padding: EdgeInsets.only(top:20),
-                      width: 110,
-                      child: FlatButton(
-                        onPressed: () => connect(),
-                        child: Text(
-                          'Connect',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontFamily: 'Roboto'
-                          )
-                        ),
-                      )
-                    ),
+                        padding: EdgeInsets.only(top: 20),
+                        width: 110,
+                        child: TextButton(
+                          onPressed: () => connect(),
+                          child: Text('Connect',
+                              style: TextStyle(
+                                  color: Colors.black, fontFamily: 'Roboto')),
+                        )),
                   ],
                 )
               ],

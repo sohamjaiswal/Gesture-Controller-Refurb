@@ -1,3 +1,3 @@
-class Router{
+class MyRouter {
   static String state = '';
 }

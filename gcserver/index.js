@@ -22,14 +22,14 @@ app.get('/', (req,res)=>{
 
 socketio.on("connection", connection)
 
-function openLogos(){
-  if(MASTER_IP == 'localhost'){
-    exec(`ssh lg@lg${logosMachine} "export DISPLAY=:0;feh -x -g 400x121 ~/gc-assets/logos.png"`)
-  }
-}
+// function openLogos(){
+//   if(MASTER_IP == 'localhost'){
+//     exec(`ssh lg@lg${logosMachine} "export DISPLAY=:0;feh -x -g 400x121 ~/gc-assets/logos.png"`)
+//   }
+// }
 
 http.listen(port,() => {
   console.log(`GC Server listening on port ${port}`)
-  if(logosMachine!='n')
-    openLogos()
+  // if(logosMachine!='n')
+  //   openLogos()
 })
