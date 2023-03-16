@@ -11,11 +11,11 @@ class _ConfigOptionsWidgetState extends State<ConfigOptionsWidget> {
   bool voiceEnabled;
   bool keypointsEnabled;
 
-  // switchVoice(value){
+  // switchVoice(value) {
   //   Options.voiceCommands = value;
-  //   if(value == true) VoiceCommands().listen();
-  //   setState((){
-  //       voiceEnabled = value;
+  //   if (value == true) VoiceCommands().listen();
+  //   setState(() {
+  //     voiceEnabled = value;
   //   });
   // }
 
@@ -29,7 +29,7 @@ class _ConfigOptionsWidgetState extends State<ConfigOptionsWidget> {
   @override
   initState() {
     super.initState();
-    voiceEnabled = Options.voiceCommands;
+    // voiceEnabled = Options.voiceCommands;
     keypointsEnabled = Options.renderKeypoints;
   }
 
